@@ -7,7 +7,7 @@
  - /login 👉
 ```
 Method: GET
-Parms(Body): username, password
+Parms(Headers): username, password
 Return: login_status and token
 ```
  - /register 👉
@@ -20,6 +20,12 @@ Return: login_status and token
  - /jwt_validation 👉
 ```
 Method: GET
-Params(Header): "Baerer <token>"
+Params(Headers): "Baerer <token>"
 Return: token_is_valid and token_decoded
+```
+ - /refresh_token 👉
+```
+Method: GET
+Params(Headers): user_id, username, password, jwt_token
+Return: refresh_token
 ```

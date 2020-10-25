@@ -7,7 +7,9 @@ const { config } = require("../database");
 
 class AccountController {
     Login(req, res) {
-        const {username, password} = req.body;
+        let {username, password} = req.headers;
+
+        console.log(username, password);
         database.query("SELECT * FROM users_accounts WHERE username = ?", [ username ],
         (error, results, fields) => {
             if (error) return res.status(500).send({login: false, message: "Error"});
